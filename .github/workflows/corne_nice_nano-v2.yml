@@ -1,7 +1,7 @@
 # Copyright 2022 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-name: 'corne nice_nano 2 with mouse'
+name: 'corne nice_nano 2'
 on: workflow_dispatch
 jobs:
   build:
