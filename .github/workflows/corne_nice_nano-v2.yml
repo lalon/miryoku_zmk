@@ -9,11 +9,6 @@ jobs:
     secrets: inherit
     with:
       custom_config: '["#define MIRYOKU_KLUDGE_MOUSEKEYSPR"]'
-      kconfig: '["CONFIG_ZMK_MOUSE=y"]'
       board: '["nice_nano_v2"]'
       shield: '["corne_left","corne_right"]'
-      branches: '[
-        "zmkfirmware/zmk/main krikun98/zmk/mouse-pr",
-        "zmkfirmware/zmk/main ftc/zmk/mouse-ftc",
-        "ftc/zmk/mouse-ftc"
-      ]'
+      branches: '["zmkfirmware/zmk/main caksoylar/zmk/feat/mouse-keys-3.2"]'
