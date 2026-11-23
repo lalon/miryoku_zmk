@@ -8,6 +8,16 @@
 
 #define U_MACRO_VA_ARGS(macro, ...) macro(__VA_ARGS__)
 #define U_STRINGIFY(x) #x
+#define U_MACRO(name,...) \
+/ { \
+  macros { \
+    name: name { \
+      compatible = "zmk,behavior-macro"; \
+      #binding-cells = <0>; \
+      __VA_ARGS__ \
+    }; \
+  }; \
+};
 
 #define U_NP &none // key is not present
 #define U_NA &none // present but not available for use
@@ -17,8 +27,14 @@
 
 #include "miryoku_clipboard.h"
 
-#if defined (MIRYOKU_KLUDGE_MOUSEKEYSPR)
-  #include "miryoku_kludge_mousekeyspr.h"
+#include "miryoku_double_tap_guard.h"
+
+#include "miryoku_shift_functions.h"
+
+#include "miryoku_mousekeys.h"
+
+#if defined (MIRYOKU_KLUDGE_TAPDELAY)
+  #include "miryoku_kludge_tapdelay.h"
 #else
-  #include "miryoku_mousekeys.h"
+  #include "miryoku_behaviors.h"
 #endif
